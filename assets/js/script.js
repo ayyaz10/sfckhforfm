@@ -139,7 +139,7 @@ submitBtns.addEventListener('click', (e) => {
     // https://datapackage-1.herokuapp.com/
       fetch('https://datapackage-1.herokuapp.com/sfckhuserdata', {
         method: "post",
-        mode: 'cors',
+        // mode: 'cors',
         // credentials: 'include',
         headers: {
           'Content-Type': 'application/json'
