@@ -1,4 +1,13 @@
 /* style for modal */
+
+/* swal modal */
+.swal-button {
+  background-color: #007BFF !important;
+}
+.swal-button:hover {
+  background-color: #007BFF !important;
+}
+
 .modal-bg {
   position: fixed;
   width: 100%;
@@ -22,13 +31,14 @@
 .modal-container {
   background: #ffffff;
   width: 50%;
+  border-radius: 8px;
 }
 
 .custom-modal-header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.229);
   width: 100%;
 
-  padding: 20px;
+  padding: 13px 17px;
   display: flex;
   align-items: center;
 }
@@ -44,6 +54,7 @@
   justify-content: center;
   font-size: 24px;
   padding: 30px;
+  font-weight: 600;
 }
 
 .custom-modal-footer {
@@ -158,17 +169,15 @@
   }
   .custom-modal-body-text {
     font-size: 18px;
-    font-weight: 500;
   }
 
-  .custom-modal-header {
-    padding: 15px;
-  }
+
   .custom-modal-body-text {
-    padding: 15px;
+    /* padding: 15px; */
+    padding: 22px 17px 8px 17px;
   }
   .custom-modal-footer {
-    padding: 5px 5px 25px 5px;
+    padding: 5px 5px 20px 5px;
   }
   .footer-close-btn-container>button {
     font-size: 1.3rem;
@@ -209,6 +218,7 @@
   left: 50%;
   top: 4%;
   transform: translate(-50%, 0%);
+  width: 100%;
 }
 
 .slide-active, .form-slide-active {
@@ -267,6 +277,7 @@
 .review-back-btn, .review-change-btn {
   font-size: 19px;
   cursor: pointer;
+  font-weight: 700;
 }
 
 .review-change-btn {
@@ -282,14 +293,36 @@
   padding: 0;
   font-size: 20px;
   width: 12px;
-  margin: 5px 7px;
+  margin: 0px 7px 0 0;
+}
+
+@media screen and (max-width: 540px) {
+  .review-back-btn, .review-change-btn {
+    font-size: 16;
+    cursor: pointer;
+    font-weight: 700;
+  }
+  
+  .review-change-btn {
+    /*text-align: center;*/
+  }
+  
+  
+  .review-back-btn:hover {
+    
+  }
+  
+  .review-back-btn .fa, .review-change-btn .fa{
+    padding: 0;
+    font-size: 16;
+    width: 12px;
+    /* margin: px 7px 0 0px; */
+  }
 }
 
 
-
-
 body {
-  background: #d5dadd;
+  background: #d5dadd !important;
 }
 
 .required-red {
@@ -334,11 +367,11 @@ body {
 
 .form-heading {
   font-size: 16px;
-  font-weight: 400;
-  /* text-align: center; */
-
+  font-weight: 600;
 }
-
+.form-control {
+  margin: 6px 0px !important;
+}
 .form-group label {
   font-size: 18px;
   font-weight: 400;
@@ -350,7 +383,7 @@ select.form-input {
 }
 
 .form-input {
-  border-left: 4px solid #007BFF;
+  border-left: 4px solid #007BFF !important;
 }
 
 .form-submit-btn, .form-next-btn {
@@ -358,7 +391,7 @@ select.form-input {
   text-align: right;
   border: none;
   border-radius: 5px;
-  font-size: 22px;
+  font-size: 20px;
   width: 100%;
   text-align: center;
   cursor: pointer;
@@ -377,6 +410,33 @@ select.form-input {
   color: rgb(210, 210, 210);
 }
 
+.submit-btn-loading-text {
+  visibility: hidden;
+  opacity: 0;
+  display: none;
+  animation: fadeIn 1s;
+}
+
+.submit-btn.text {
+  visibility: visible;
+  opacity: 1;
+  display: inline-block;
+  animation: fadeIn 1s;
+}
+
+.submit-btn.text.hide {
+  visibility: hidden;
+  opacity: 0;
+  display: none;
+}
+
+.submit-btn-loading-text.active {
+  visibility: visible;
+  opacity: 1;
+  display: inline-block;
+}
+
+
 .member-name-container {
   background: #fff;
   margin: 20px 0 0 0;
@@ -390,7 +450,7 @@ select.form-input {
 
 .site-footer {
   margin: 0px auto 0 auto;
-  padding: 40px 20px 40px 20px;
+  /* padding: 25px 20px 25px 20px; */
   /* background: #fff; */
 }
 .footer-content-container {
@@ -444,7 +504,18 @@ address {
 
     .form-section {
       padding: 0px 20px 0px 20px;
-  }
+      margin: 0 0 40px 0;
+    }
+    h2.review-heading {
+      font-size: 22px;
+      margin: 10px 0 20px 0;
+    }
+    .form-submit-btn, .form-next-btn {
+      font-size: 18px;
+    }
+    .review-change-btn, .review-back-btn {
+      font-size: 16px;
+    }
 
   .welcome-image {
     display: block;
@@ -464,14 +535,13 @@ address {
   }
   .site-footer {
     margin: 0px auto 0 auto;
-    padding: 40px 20px 40px 20px;
+    /* padding: 40px 20px 40px 20px; */
   }
   .footer-content-container {
     background: #fff;
     /* max-width: 770px; */
-    margin: 0 auto;
-    padding: 20px;
     border-radius: 12px;
+        margin: 0px auto 0 auto;
   }
   .footer-heading {
     font-size: 16px;
@@ -488,5 +558,7 @@ address {
     font-size: 15px;
     margin: 0px 0px 10px;
   }
+  
+  
 
 }

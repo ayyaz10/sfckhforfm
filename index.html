@@ -26,7 +26,7 @@
     <title>3CroreFarmers</title>
   </head>
   <body>
-    <div class="before hide">
+    <div class="before">
       <div class="wizard-container">
         <div class="image-container">
           <img
@@ -56,8 +56,7 @@
 
         <section class="form-section before-review container">
           <h2 class="form-heading">
-            Please Fill In The Information About Your Family Member Who Died
-            During Anti Farm Laws Protests
+            Please Fill In The Information
           </h2>
           <form class="form">
             <form class="form-group">
@@ -123,7 +122,7 @@
             </section>
       <section class="review-section after-form container">
         <p class="review-back-btn"><i class="fa fa-solid fa-angle-left"></i>Back</p>
-        <h2 class="reivew-heading">
+        <h2 class="review-heading">
           Review Your Information
         </h2>
         <table class="table table-sm border-0">
@@ -153,7 +152,7 @@
           </tr>
         </table>
         <p class="review-change-btn"><i class="fa fa-solid fa-angle-left"></i>Make Change</p>
-        <button type="submit" class="form-submit-btn">Submit</button>
+        <button type="submit" class="form-submit-btn"><span class="submit-btn-text">Submit</span><span class="submit-btn-loading-text">Loading Please Wait  <i class="fas fa-spinner fa-spin"></i></span></button>
       </section>
     </section>
       <section>
@@ -248,11 +247,10 @@
       function hideReview() {
         formSection.classList.remove('form-slide-active');
         reviewSection.classList.remove('after-active');
-
       }
       setTimeout(() => {
         hideBefore();
-      }, 0);
+      }, 2500);
       wizardBtn.addEventListener('click', hideBefore);
       // formNextBtn.addEventListener('click', hideForm);
       reviewBackBtn.addEventListener('click', hideReview);

@@ -22,14 +22,17 @@ function resetForm() {
 }
 
 
-const modalBg = document.querySelector('.modal-bg')
+const modalBg = document.querySelector('.modal-bg');
+const loadingSpinder = document.querySelector('.fa-spinner');
 function openModal() {
+  loadingSpinder.style.display = 'none';
   modalBg.classList.add('bg-active');
 }
 
 const modalClose = document.querySelectorAll('.custom-modal-close');
  function closeModal() {
   modalBg.classList.remove('bg-active')
+  window.location.reload();
 }
 
 const submitBtn = document.querySelector('.form-submit-btn');
@@ -106,7 +109,6 @@ function hideForm() {
 }
 
 function populateReview() {
-  // console.log(checkInputs())
   if(checkInputs()){
     const jsonFormData = buildJsonFormData();
     document.querySelector('.input-name').textContent = jsonFormData.name;
@@ -130,14 +132,19 @@ function populateReview() {
 // const formNextBtn = document.querySelector('form-next-btn');
 formNextBtn.addEventListener('click', populateReview)
 
-const submitBtns = document.querySelector('.form-submit-btn');
-submitBtns.addEventListener('click', (e) => {
+// const submitBtn = document.querySelector('.form-submit-btn');
+submitBtn.addEventListener('click', (e) => {
   e.preventDefault();
-  // disableBtn();
+  const submitBtnLodingText = document.querySelector('.submit-btn-loading-text');
+  const submitBtnText = document.querySelector('.submit-btn-text');
+  submitBtnText.classList.add('hide');
+  submitBtnLodingText.classList.add('active');
+  disableBtn();
   
     const jsonFormData = buildJsonFormData();
+    
     // https://datapackage-1.herokuapp.com/
-      fetch('https://datapackage-1.herokuapp.com/sfckhuserdata', {
+      fetch('https://datapackage-1.herokuapp.com/sfjkhuserdata', {
         method: "post",
         mode: 'cors',
         // credentials: 'include',
@@ -150,15 +157,12 @@ submitBtns.addEventListener('click', (e) => {
         return res.json();
       })
       .then(data => {
-   
-          resetForm();
-          openModal();
-          addResponseToModal(data);
+        resetForm();
+        openModal();
+        addResponseToModal(data);
       })
  
 })
-
-
 
 async function setDialCode() {
     const apiKey = '9e561ac44bb67e58b5382b1ca6a9eb7cc51652aaca39f430509c2549';
@@ -175,7 +179,7 @@ async function setDialCode() {
     }
 
 }
-// setDialCode();
+setDialCode();
 
 modalClose.forEach(each => {
   each.addEventListener('click', closeModal);
